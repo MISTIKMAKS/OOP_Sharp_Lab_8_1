@@ -8,54 +8,52 @@ namespace Lab8_1
 {
     public class Color_Dot : Point
     {
-        private Point point;
         private string color;
         public Color_Dot() 
-        { 
-            this.point = new Point(); 
+        {
+            this.SetX(0); 
+            this.SetY(0);
             this.color = ""; 
         }
         public Color_Dot(int x, int y, string color) 
-        { 
-            this.point = new Point(x, y); 
+        {
+            this.SetX(x);
+            this.SetY(y);
             this.color = color; 
         }
         public Color_Dot(int x, string color)
         {
-            this.point = new Point(x, 0);
+            this.SetX(x);
+            this.SetY(0);
             this.color = color;
         }
         public Color_Dot(string color, int y)
         {
-            this.point = new Point(0, y);
+            this.SetX(0);
+            this.SetY(y);
             this.color = color;
         }
         public Color_Dot(string color)
         {
-            this.point = new Point(0, 0);
+            this.SetX(0);
+            this.SetY(0);
             this.color = color;
         }
         public Color_Dot(int x, int y)
         {
-            this.point = new Point(x, y);
+            this.SetX(x);
+            this.SetY(y);
             this.color = "";
         }
         public Color_Dot(Color_Dot c_d) 
-        { 
-            this.point = c_d.point; 
+        {
+            this.SetX(c_d.GetX());
+            this.SetY(c_d.GetY());
             this.color = c_d.color; 
-        }
-        public Point GetPoint() 
-        { 
-            return this.point; 
         }
         public string GetColor() 
         { 
             return this.color; 
-        }
-        public void SetPoint(Point value) 
-        { 
-            this.point = value; 
         }
         public void SetColor(string value) 
         { 
@@ -70,15 +68,16 @@ namespace Lab8_1
             Console.WriteLine("point: ");
             Console.WriteLine("x: ");
             int x = Convert.ToInt32(Console.ReadLine());
+            this.SetX(x);
             Console.WriteLine("y: ");
             int y = Convert.ToInt32(Console.ReadLine());
-            this.point = new Point(x, y);
+            this.SetY(y);
             Console.WriteLine("color: ");
             this.color = Console.ReadLine();
         }
         public override string ToString()
         { 
-            return "Color_Dot[" + "point: " + this.point + " color: " + this.color + "]"; 
+            return "Color_Dot[" + "point: " + "[x: " + this.GetX() + " y: " + this.GetY() + "]" + " color: " + this.color + "]"; 
         }
     }
 }
